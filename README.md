@@ -225,16 +225,6 @@ npm publish
 
 ---
 
-# GitHub CDN
-
-Use:
-
-```html
-https://cdn.jsdelivr.net/gh/USERNAME/REPO/file.css
-```
-
----
-
 # License
 
 MIT License
