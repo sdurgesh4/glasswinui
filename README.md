@@ -45,8 +45,7 @@ Use jsDelivr: `<link rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/sdurges
 Upload CSS to GitHub + jsDelivr:
 
 ```html
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/gh/yourusername/glasswin-ui/glasswin-ui.css">
+<link rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/sdurgesh4/glasswinui/glasswin-ui.css" />
 ```
 
 ---
