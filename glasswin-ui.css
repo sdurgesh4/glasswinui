@@ -1,0 +1,534 @@
+/* =========================================================
+   GlassWin UI Framework v1.0
+   Modern Glassmorphic CSS Framework
+   Inspired by futuristic Windows-style UI
+   ========================================================= */
+
+:root{
+  --gw-primary:#4f8cff;
+  --gw-primary-light:#8db8ff;
+  --gw-success:#3ddc97;
+  --gw-danger:#ff5f7a;
+  --gw-warning:#ffc857;
+
+  --gw-bg:#0f172a;
+  --gw-surface:rgba(255,255,255,0.08);
+  --gw-surface-2:rgba(255,255,255,0.12);
+
+  --gw-text:#ffffff;
+  --gw-muted:#cbd5e1;
+
+  --gw-border:rgba(255,255,255,0.15);
+  --gw-shadow:
+    0 8px 32px rgba(0,0,0,0.25);
+
+  --gw-radius:18px;
+  --gw-blur:18px;
+
+  --gw-transition:0.25s ease;
+  --gw-font:'Segoe UI',sans-serif;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+    radial-gradient(circle at top left,#1e3a8a,#0f172a);
+  min-height:100vh;
+  font-family:var(--gw-font);
+  color:var(--gw-text);
+  padding:30px;
+}
+
+/* =========================
+   GLOBAL COMPONENT
+========================= */
+
+.gw-glass{
+  background:var(--gw-surface);
+  border:1px solid var(--gw-border);
+  backdrop-filter:blur(var(--gw-blur));
+  -webkit-backdrop-filter:blur(var(--gw-blur));
+  box-shadow:var(--gw-shadow);
+  border-radius:var(--gw-radius);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.gw-container{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.gw-title{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.gw-text{
+  color:var(--gw-muted);
+  line-height:1.7;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.gw-btn{
+  border:none;
+  outline:none;
+  padding:12px 22px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:var(--gw-transition);
+  font-weight:600;
+  color:white;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.15);
+}
+
+.gw-btn:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.14);
+}
+
+.gw-btn-primary{
+  background:linear-gradient(
+    135deg,
+    var(--gw-primary),
+    var(--gw-primary-light)
+  );
+}
+
+.gw-btn-success{
+  background:linear-gradient(
+    135deg,
+    #00c896,
+    #3ddc97
+  );
+}
+
+.gw-btn-danger{
+  background:linear-gradient(
+    135deg,
+    #ff416c,
+    #ff4b2b
+  );
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.gw-input,
+.gw-select,
+.gw-textarea{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid var(--gw-border);
+  background:rgba(255,255,255,0.08);
+  color:white;
+  outline:none;
+  backdrop-filter:blur(10px);
+  transition:var(--gw-transition);
+}
+
+.gw-input:focus,
+.gw-select:focus,
+.gw-textarea:focus{
+  border-color:var(--gw-primary);
+  box-shadow:0 0 0 4px rgba(79,140,255,0.25);
+}
+
+.gw-textarea{
+  resize:vertical;
+  min-height:120px;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.gw-form-group{
+  margin-bottom:20px;
+}
+
+.gw-label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  color:var(--gw-muted);
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.gw-checkbox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.gw-checkbox input{
+  width:18px;
+  height:18px;
+  accent-color:var(--gw-primary);
+}
+
+/* =========================
+   RADIO
+========================= */
+
+.gw-radio{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.gw-radio input{
+  accent-color:var(--gw-primary);
+}
+
+/* =========================
+   CARD
+========================= */
+
+.gw-card{
+  padding:25px;
+  border-radius:22px;
+  background:var(--gw-surface);
+  border:1px solid var(--gw-border);
+  backdrop-filter:blur(18px);
+  box-shadow:var(--gw-shadow);
+}
+
+.gw-card-title{
+  font-size:1.3rem;
+  margin-bottom:12px;
+}
+
+.gw-card-body{
+  color:var(--gw-muted);
+}
+
+/* =========================
+   ALERTS
+========================= */
+
+.gw-alert{
+  padding:16px;
+  border-radius:16px;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.gw-alert-success{
+  background:rgba(61,220,151,0.15);
+  border:1px solid rgba(61,220,151,0.3);
+}
+
+.gw-alert-danger{
+  background:rgba(255,95,122,0.15);
+  border:1px solid rgba(255,95,122,0.3);
+}
+
+.gw-alert-warning{
+  background:rgba(255,200,87,0.15);
+  border:1px solid rgba(255,200,87,0.3);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.gw-navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 30px;
+  margin-bottom:25px;
+}
+
+.gw-nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.gw-nav-links a{
+  color:white;
+  text-decoration:none;
+  transition:var(--gw-transition);
+}
+
+.gw-nav-links a:hover{
+  color:var(--gw-primary-light);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.gw-table{
+  width:100%;
+  border-collapse:collapse;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.gw-table th,
+.gw-table td{
+  padding:16px;
+  text-align:left;
+}
+
+.gw-table th{
+  background:rgba(255,255,255,0.08);
+}
+
+.gw-table tr{
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+/* =========================
+   DIALOG
+========================= */
+
+.gw-dialog{
+  width:400px;
+  padding:25px;
+  margin:auto;
+}
+
+.gw-dialog-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.gw-badge{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(255,255,255,0.12);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.gw-dropdown{
+  position:relative;
+  display:inline-block;
+}
+
+.gw-dropdown-content{
+  position:absolute;
+  top:110%;
+  left:0;
+  min-width:200px;
+  display:none;
+  padding:10px;
+  z-index:99;
+}
+
+.gw-dropdown:hover .gw-dropdown-content{
+  display:block;
+}
+
+.gw-dropdown-item{
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.gw-dropdown-item:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+/* =========================
+   TOOLTIP
+========================= */
+
+.gw-tooltip{
+  position:relative;
+  display:inline-block;
+}
+
+.gw-tooltip .gw-tooltip-text{
+  visibility:hidden;
+  position:absolute;
+  bottom:125%;
+  left:50%;
+  transform:translateX(-50%);
+  padding:8px 12px;
+  border-radius:12px;
+  white-space:nowrap;
+}
+
+.gw-tooltip:hover .gw-tooltip-text{
+  visibility:visible;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.gw-loader{
+  width:50px;
+  height:50px;
+  border:4px solid rgba(255,255,255,0.15);
+  border-top-color:var(--gw-primary);
+  border-radius:50%;
+  animation:gw-spin 1s linear infinite;
+}
+
+@keyframes gw-spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.gw-marquee{
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.gw-marquee span{
+  display:inline-block;
+  padding-left:100%;
+  animation:gw-marquee 12s linear infinite;
+}
+
+@keyframes gw-marquee{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-100%);
+  }
+}
+
+/* =========================
+   CAROUSEL
+========================= */
+
+.gw-carousel{
+  display:flex;
+  overflow:auto;
+  gap:20px;
+  scroll-snap-type:x mandatory;
+}
+
+.gw-carousel-item{
+  min-width:300px;
+  scroll-snap-align:start;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.gw-grid{
+  display:grid;
+  gap:20px;
+}
+
+.gw-grid-2{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.gw-grid-3{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.gw-grid-4{
+  grid-template-columns:repeat(4,1fr);
+}
+
+/* =========================
+   FLEX
+========================= */
+
+.gw-flex{
+  display:flex;
+}
+
+.gw-flex-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.gw-space-between{
+  justify-content:space-between;
+}
+
+/* =========================
+   SPACING
+========================= */
+
+.gw-mt-1{margin-top:10px;}
+.gw-mt-2{margin-top:20px;}
+.gw-mt-3{margin-top:30px;}
+
+.gw-p-1{padding:10px;}
+.gw-p-2{padding:20px;}
+.gw-p-3{padding:30px;}
+
+/* =========================
+   HOVER EFFECTS
+========================= */
+
+.gw-hover-float:hover{
+  transform:translateY(-5px);
+}
+
+.gw-hover-glow:hover{
+  box-shadow:
+    0 0 25px rgba(79,140,255,0.45);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  .gw-grid-2,
+  .gw-grid-3,
+  .gw-grid-4{
+    grid-template-columns:1fr;
+  }
+
+  .gw-navbar{
+    flex-direction:column;
+    gap:15px;
+  }
+
+}
