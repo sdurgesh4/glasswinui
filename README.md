@@ -8,6 +8,8 @@ Beautiful blur effects.
 Easy Bootstrap-like class system.
 
 ---
+Use jsDelivr: https://cdn.jsdelivr.net/gh/sdurgesh4/glasswinui/
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sdurgesh4/glasswinui/">
 
 # Features
 
