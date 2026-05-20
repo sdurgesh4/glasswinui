@@ -5,7 +5,7 @@ Modern Glassmorphic CSS Framework inspired by futuristic Windows-style UI.
 <a href="https://sdurgesh4.github.io/glasswinui/">
   <img src="https://img.shields.io/badge/🚀%20Launch%20Demo-GlassWinUI-8A2BE2?style=for-the-badge">
 </a>
-[![GitHub stars](https://img.shields.io/github/stars/sdurgesh4/glasswin-ui?style=for-the-badge)](#)
+---
 
 Lightweight.
 Responsive.
