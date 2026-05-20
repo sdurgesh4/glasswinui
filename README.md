@@ -2,6 +2,12 @@
 
 Modern Glassmorphic CSS Framework inspired by futuristic Windows-style UI.
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-4f8cff?style=for-the-badge)](https://yourusername.github.io/glasswin-ui/)
+<a href="https://yourusername.github.io/glasswin-ui/">
+  <img src="https://img.shields.io/badge/🚀%20Launch%20Demo-GlassWinUI-8A2BE2?style=for-the-badge">
+</a>
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/glasswin-ui?style=for-the-badge)](#)
+
 Lightweight.
 Responsive.
 Beautiful blur effects.
@@ -213,25 +219,13 @@ glasswin-ui/
 
 ---
 
-# Publish to npm
-
-```bash
-npm init -y
-```
-
-```bash
-npm publish
-```
-
----
-
 
 # GlassWin UI v2.0 — Class Reference & Tutorial
 # Modern Glassmorphic CSS Framework
 # Windows 11 Acrylic / Mica inspired
 
 
-##CDN LINK
+#CDN LINK
 --------
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sdurgesh4/glasswinui/glasswin-ui.css" />
@@ -261,7 +255,7 @@ Use the built-in toggle button:
 
 # GLASS LAYERS
 
-##Three built-in glass surfaces, ordered by opacity:
+# Three built-in glass surfaces, ordered by opacity:
 ```html
   .gw-glass       Balanced. Good for cards, navbars.
   .gw-glass-sm    Subtle. Thin blur. Good for tooltips, inputs.
