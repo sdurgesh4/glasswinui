@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlassWin UI — Component Demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sdurgesh4/glasswinui/glasswin-ui.css">
+  <style>
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gw-primary);
+      margin-bottom: 6px;
+    }
+    .section-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .section-desc {
+      color: var(--gw-text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+    .demo-section {
+      margin-bottom: 64px;
+    }
+    .component-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,140,255,0.18) 0%, transparent 70%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .code-block {
+      background: var(--gw-glass-1);
+      border: 1px solid var(--gw-border);
+      border-radius: var(--gw-radius-sm);
+      padding: 14px 18px;
+      font-family: var(--gw-font-mono);
+      font-size: 0.82rem;
+      color: var(--gw-text-secondary);
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.6;
+    }
+    .preview-box {
+      padding: 28px;
+      border-radius: var(--gw-radius-lg);
+      background: var(--gw-glass-1);
+      border: 1px solid var(--gw-border);
+      backdrop-filter: blur(var(--gw-blur-sm));
+      -webkit-backdrop-filter: blur(var(--gw-blur-sm));
+      margin-bottom: 12px;
+    }
+    .sidebar-layout {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .color-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    @media (max-width: 768px) {
+      .sidebar-layout { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toast Container -->
+<div class="gw-toast-container" id="toastContainer"></div>
+
+<!-- Navbar -->
+<div class="gw-container">
+  <nav class="gw-navbar gw-fade-in">
+    <a class="gw-navbar-brand gw-gradient-text" href="#">GlassWin UI</a>
+    <div class="gw-nav-links">
+      <a href="#buttons" class="active">Buttons</a>
+      <a href="#cards">Cards</a>
+      <a href="#forms">Forms</a>
+      <a href="#components">Components</a>
+    </div>
+    <div class="gw-nav-actions">
+      <a href="https://github.com/sdurgesh4/glasswinui" target="_blank"
+         class="gw-btn gw-btn-ghost gw-btn-sm">GitHub</a>
+      <button class="gw-btn gw-btn-primary gw-btn-sm" onclick="toggleTheme()">
+        <span id="themeIcon">☀️</span> Toggle Theme
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div style="position:relative; text-align:center; padding: 60px 20px 80px; overflow:hidden;">
+    <div class="hero-glow"></div>
+    <div class="gw-heading gw-slide-up">CSS Framework</div>
+    <h1 class="gw-slide-up gw-delay-1" style="font-size:3.2rem; font-weight:900; letter-spacing:-1.5px; line-height:1.1; margin-bottom:16px;">
+      Glass<span class="gw-gradient-text">Win</span> UI
+    </h1>
+    <p class="gw-lead gw-slide-up gw-delay-2" style="max-width:520px; margin:0 auto 32px;">
+      Modern glassmorphic components inspired by Windows 11.
+      Dual theme. Zero dependencies. One CSS file.
+    </p>
+    <div class="gw-flex-center gw-gap-sm gw-slide-up gw-delay-3" style="flex-wrap:wrap;">
+      <button class="gw-btn gw-btn-primary gw-btn-lg" onclick="showToast('CDN link copied!  paste in your HTML head.')">
+        Copy CDN Link
+      </button>
+      <a href="https://github.com/sdurgesh4/glasswinui" target="_blank"
+         class="gw-btn gw-btn-lg">View on GitHub</a>
+    </div>
+    <div class="gw-mt-3 gw-slide-up gw-delay-4">
+      <code class="gw-code" style="font-size:0.78rem;">
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sdurgesh4/glasswinui/glasswin-ui.css"&gt;
+      </code>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="gw-grid gw-grid-4 gw-gap-sm gw-mb-4 gw-slide-up gw-delay-2">
+    <div class="gw-card gw-text-center gw-p-3">
+      <div style="font-size:2rem; font-weight:900;" class="gw-gradient-text">20+</div>
+      <div class="gw-muted gw-text-sm">Components</div>
+    </div>
+    <div class="gw-card gw-text-center gw-p-3">
+      <div style="font-size:2rem; font-weight:900;" class="gw-gradient-text">2</div>
+      <div class="gw-muted gw-text-sm">Themes</div>
+    </div>
+    <div class="gw-card gw-text-center gw-p-3">
+      <div style="font-size:2rem; font-weight:900;" class="gw-gradient-text">0</div>
+      <div class="gw-muted gw-text-sm">Dependencies</div>
+    </div>
+    <div class="gw-card gw-text-center gw-p-3">
+      <div style="font-size:2rem; font-weight:900;" class="gw-gradient-text">MIT</div>
+      <div class="gw-muted gw-text-sm">License</div>
+    </div>
+  </div>
+
+  <!-- ================================
+       BUTTONS
+  ================================= -->
+  <div class="demo-section" id="buttons">
+    <div class="section-title">Components</div>
+    <div class="section-name">Buttons</div>
+    <div class="section-desc">Glass buttons with gradient variants and glow effects.</div>
+
+    <div class="preview-box">
+      <div class="component-row gw-mb-3">
+        <button class="gw-btn gw-btn-primary">Primary</button>
+        <button class="gw-btn gw-btn-success">Success</button>
+        <button class="gw-btn gw-btn-danger">Danger</button>
+        <button class="gw-btn gw-btn-warning">Warning</button>
+        <button class="gw-btn gw-btn-info">Info</button>
+        <button class="gw-btn gw-btn-ghost">Ghost</button>
+        <button class="gw-btn">Default</button>
+      </div>
+      <div class="component-row">
+        <button class="gw-btn gw-btn-primary gw-btn-sm">Small</button>
+        <button class="gw-btn gw-btn-primary">Medium</button>
+        <button class="gw-btn gw-btn-primary gw-btn-lg">Large</button>
+        <button class="gw-btn gw-btn-primary gw-btn-xl">Extra Large</button>
+        <button class="gw-btn gw-btn-icon gw-btn-primary">+</button>
+      </div>
+    </div>
+
+    <div class="code-block">&lt;button class="gw-btn gw-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="gw-btn gw-btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="gw-btn gw-btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="gw-btn gw-btn-ghost gw-btn-sm"&gt;Small Ghost&lt;/button&gt;</div>
+  </div>
+
+  <!-- ================================
+       CARDS
+  ================================= -->
+  <div class="demo-section" id="cards">
+    <div class="section-title">Components</div>
+    <div class="section-name">Cards</div>
+    <div class="section-desc">Frosted glass cards with header, body, and footer sections.</div>
+
+    <div class="gw-grid gw-grid-3">
+      <div class="gw-card">
+        <div class="gw-card-header">
+          <div>
+            <div class="gw-card-title">Basic Card</div>
+            <div class="gw-card-subtitle">Subtitle text here</div>
+          </div>
+          <span class="gw-badge gw-badge-primary">New</span>
+        </div>
+        <div class="gw-card-body">
+          Standard glass card with header, body, and footer sections.
+        </div>
+        <div class="gw-card-footer">
+          <button class="gw-btn gw-btn-primary gw-btn-sm">Action</button>
+          <button class="gw-btn gw-btn-ghost gw-btn-sm">Cancel</button>
+        </div>
+      </div>
+
+      <div class="gw-card gw-card-acrylic">
+        <div class="gw-card-title">Acrylic Card</div>
+        <div class="gw-card-subtitle">Heavy blur variant</div>
+        <div class="gw-card-body gw-mt-2">
+          Uses <code class="gw-code">.gw-card-acrylic</code> for deeper blur and stronger glass effect.
+        </div>
+        <div class="gw-mt-3">
+          <div class="gw-progress">
+            <div class="gw-progress-bar" style="width:68%"></div>
+          </div>
+          <div class="gw-muted gw-text-sm gw-mt-1">68% complete</div>
+        </div>
+      </div>
+
+      <div class="gw-card gw-hover-float">
+        <div class="gw-flex-between gw-mb-3">
+          <div class="gw-avatar gw-avatar-lg">DG</div>
+          <span class="gw-badge gw-badge-success">Active</span>
+        </div>
+        <div class="gw-card-title">Durgesh S.</div>
+        <div class="gw-muted gw-text-sm">Frontend Developer</div>
+        <div class="gw-mt-3 gw-flex" style="gap:8px; flex-wrap:wrap;">
+          <span class="gw-chip active">CSS</span>
+          <span class="gw-chip">UI Design</span>
+          <span class="gw-chip">Glass UI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       FORMS
+  ================================= -->
+  <div class="demo-section" id="forms">
+    <div class="section-title">Components</div>
+    <div class="section-name">Forms</div>
+    <div class="section-desc">Glass inputs, selects, toggles, and checkboxes.</div>
+
+    <div class="gw-grid gw-grid-2">
+      <div class="gw-card">
+        <div class="gw-card-title gw-mb-3">Sign In</div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Email</label>
+          <div class="gw-input-group">
+            <span class="gw-input-icon">@</span>
+            <input class="gw-input" type="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Password</label>
+          <input class="gw-input" type="password" placeholder="Enter password">
+          <span class="gw-form-hint">Minimum 8 characters.</span>
+        </div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Plan</label>
+          <select class="gw-select">
+            <option>Free</option>
+            <option>Pro</option>
+            <option>Enterprise</option>
+          </select>
+        </div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Notes</label>
+          <textarea class="gw-textarea" placeholder="Write something..."></textarea>
+        </div>
+
+        <div class="gw-flex" style="gap:16px; flex-wrap:wrap; margin-bottom:20px;">
+          <label class="gw-checkbox">
+            <input type="checkbox" checked> Remember me
+          </label>
+          <label class="gw-radio">
+            <input type="radio" name="r1" checked> Dark
+          </label>
+          <label class="gw-radio">
+            <input type="radio" name="r1"> Light
+          </label>
+        </div>
+
+        <button class="gw-btn gw-btn-primary gw-btn-block">Sign In</button>
+      </div>
+
+      <div class="gw-card">
+        <div class="gw-card-title gw-mb-3">Settings</div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Volume</label>
+          <input class="gw-range" type="range" min="0" max="100" value="65">
+        </div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Search</label>
+          <div class="gw-input-group">
+            <input class="gw-input" type="text" placeholder="Search components...">
+            <button class="gw-btn gw-btn-primary">Go</button>
+          </div>
+        </div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Valid Input</label>
+          <input class="gw-input gw-input-success" type="text" value="glasswin@ui.com">
+        </div>
+
+        <div class="gw-form-group">
+          <label class="gw-label">Error Input</label>
+          <input class="gw-input gw-input-error" type="text" value="invalid-value">
+          <span class="gw-form-error">This field is required.</span>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <label class="gw-toggle">
+            <input type="checkbox" checked>
+            <div class="gw-toggle-track"><div class="gw-toggle-thumb"></div></div>
+            Enable notifications
+          </label>
+          <label class="gw-toggle">
+            <input type="checkbox">
+            <div class="gw-toggle-track"><div class="gw-toggle-thumb"></div></div>
+            Dark mode
+          </label>
+          <label class="gw-toggle">
+            <input type="checkbox" checked>
+            <div class="gw-toggle-track"><div class="gw-toggle-thumb"></div></div>
+            Auto-save
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       ALERTS & TOASTS
+  ================================= -->
+  <div class="demo-section" id="components">
+    <div class="section-title">Components</div>
+    <div class="section-name">Alerts & Toasts</div>
+    <div class="section-desc">Inline alerts and animated toast notifications.</div>
+
+    <div class="gw-grid gw-grid-2">
+      <div>
+        <div class="gw-alert gw-alert-success">File saved successfully.</div>
+        <div class="gw-alert gw-alert-danger">Authentication failed. Try again.</div>
+        <div class="gw-alert gw-alert-warning">Your session expires in 5 minutes.</div>
+        <div class="gw-alert gw-alert-info">A new version is available.</div>
+      </div>
+      <div class="gw-card gw-flex-center gw-flex-col" style="gap:12px; min-height:180px;">
+        <div class="gw-muted gw-text-sm gw-mb-2">Click to trigger a toast notification</div>
+        <button class="gw-btn gw-btn-success" onclick="showToast('File saved successfully!')">Success Toast</button>
+        <button class="gw-btn gw-btn-danger"  onclick="showToast('Something went wrong.')">Danger Toast</button>
+        <button class="gw-btn gw-btn-info"    onclick="showToast('Update available.')">Info Toast</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       BADGES, CHIPS, AVATARS
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Badges, Chips & Avatars</div>
+    <div class="section-desc">Labels, tags, and user avatars.</div>
+
+    <div class="preview-box">
+      <div class="gw-heading gw-mb-2">Badges</div>
+      <div class="component-row gw-mb-4">
+        <span class="gw-badge">Default</span>
+        <span class="gw-badge gw-badge-primary">Primary</span>
+        <span class="gw-badge gw-badge-success">Active</span>
+        <span class="gw-badge gw-badge-danger">Critical</span>
+        <span class="gw-badge gw-badge-warning">Warning</span>
+      </div>
+
+      <div class="gw-heading gw-mb-2">Chips</div>
+      <div class="component-row gw-mb-4">
+        <span class="gw-chip active">Design</span>
+        <span class="gw-chip">Development</span>
+        <span class="gw-chip">React</span>
+        <span class="gw-chip">CSS</span>
+        <span class="gw-chip">Dark Mode</span>
+      </div>
+
+      <div class="gw-heading gw-mb-2">Avatars</div>
+      <div class="component-row gw-mb-4">
+        <div class="gw-avatar gw-avatar-sm">A</div>
+        <div class="gw-avatar">BC</div>
+        <div class="gw-avatar gw-avatar-lg">DG</div>
+        <div class="gw-avatar gw-avatar-xl">XL</div>
+      </div>
+
+      <div class="gw-heading gw-mb-2">Avatar Group</div>
+      <div class="gw-avatar-group">
+        <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#ef4444,#f97316)">A</div>
+        <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)">B</div>
+        <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#10b981,#06b6d4)">C</div>
+        <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">D</div>
+        <div class="gw-avatar gw-avatar-sm">+3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       TABS
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Tabs</div>
+    <div class="section-desc">Pill-style tab switcher with animated panel transitions.</div>
+
+    <div class="gw-card">
+      <div class="gw-tabs gw-mb-3">
+        <div class="gw-tab active" onclick="switchTab(this,'t1')">Overview</div>
+        <div class="gw-tab" onclick="switchTab(this,'t2')">Details</div>
+        <div class="gw-tab" onclick="switchTab(this,'t3')">Settings</div>
+      </div>
+
+      <div id="t1" class="gw-tab-content active">
+        <div class="gw-grid gw-grid-3 gw-gap-sm">
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Total Users</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-gradient-text">12,480</div>
+          </div>
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Revenue</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-color-success">$8,240</div>
+          </div>
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Active Sessions</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-color-primary">342</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="t2" class="gw-tab-content">
+        <p class="gw-text">This is the Details panel. Add detailed content, tables, or charts here.</p>
+        <div class="gw-progress gw-mt-3">
+          <div class="gw-progress-bar" style="width:82%"></div>
+        </div>
+        <div class="gw-muted gw-text-sm gw-mt-1">82% complete</div>
+      </div>
+
+      <div id="t3" class="gw-tab-content">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <label class="gw-toggle">
+            <input type="checkbox" checked>
+            <div class="gw-toggle-track"><div class="gw-toggle-thumb"></div></div>
+            Enable analytics
+          </label>
+          <label class="gw-toggle">
+            <input type="checkbox">
+            <div class="gw-toggle-track"><div class="gw-toggle-thumb"></div></div>
+            Email reports
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       PROGRESS
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Progress Bars</div>
+    <div class="section-desc">Animated shimmer progress bars with color variants.</div>
+
+    <div class="gw-card" style="display:flex; flex-direction:column; gap:18px;">
+      <div>
+        <div class="gw-flex-between gw-mb-2">
+          <span class="gw-text-sm gw-fw-600">Default</span>
+          <span class="gw-badge gw-badge-primary">72%</span>
+        </div>
+        <div class="gw-progress">
+          <div class="gw-progress-bar" style="width:72%"></div>
+        </div>
+      </div>
+      <div>
+        <div class="gw-flex-between gw-mb-2">
+          <span class="gw-text-sm gw-fw-600">Success</span>
+          <span class="gw-badge gw-badge-success">45%</span>
+        </div>
+        <div class="gw-progress gw-progress-success">
+          <div class="gw-progress-bar" style="width:45%"></div>
+        </div>
+      </div>
+      <div>
+        <div class="gw-flex-between gw-mb-2">
+          <span class="gw-text-sm gw-fw-600">Danger</span>
+          <span class="gw-badge gw-badge-danger">88%</span>
+        </div>
+        <div class="gw-progress gw-progress-danger">
+          <div class="gw-progress-bar" style="width:88%"></div>
+        </div>
+      </div>
+      <div>
+        <div class="gw-flex-between gw-mb-2">
+          <span class="gw-text-sm gw-fw-600">Thin</span>
+          <span class="gw-muted gw-text-sm">30%</span>
+        </div>
+        <div class="gw-progress gw-progress-sm">
+          <div class="gw-progress-bar" style="width:30%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       TABLE
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Table</div>
+    <div class="section-desc">Glass table with hover rows and badge status.</div>
+
+    <div class="gw-table-wrap">
+      <table class="gw-table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="gw-flex gw-items-center" style="gap:10px;">
+              <div class="gw-avatar gw-avatar-sm">AL</div> Alice Lee
+            </div></td>
+            <td>Admin</td>
+            <td><span class="gw-badge gw-badge-success">Active</span></td>
+            <td>Jan 2025</td>
+          </tr>
+          <tr>
+            <td><div class="gw-flex gw-items-center" style="gap:10px;">
+              <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)">BM</div> Bob M.
+            </div></td>
+            <td>Editor</td>
+            <td><span class="gw-badge gw-badge-warning">Away</span></td>
+            <td>Mar 2025</td>
+          </tr>
+          <tr>
+            <td><div class="gw-flex gw-items-center" style="gap:10px;">
+              <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#10b981,#06b6d4)">CK</div> Carol K.
+            </div></td>
+            <td>Viewer</td>
+            <td><span class="gw-badge gw-badge-danger">Inactive</span></td>
+            <td>Apr 2025</td>
+          </tr>
+          <tr>
+            <td><div class="gw-flex gw-items-center" style="gap:10px;">
+              <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">DS</div> Durgesh S.
+            </div></td>
+            <td>Owner</td>
+            <td><span class="gw-badge gw-badge-primary">Live</span></td>
+            <td>May 2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ================================
+       DROPDOWN & TOOLTIP
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Dropdown & Tooltip</div>
+    <div class="section-desc">Glass dropdown menus and hover tooltips.</div>
+
+    <div class="preview-box">
+      <div class="component-row" style="align-items:flex-start;">
+        <div class="gw-dropdown">
+          <button class="gw-btn gw-btn-primary">Options ▾</button>
+          <div class="gw-dropdown-menu">
+            <div class="gw-dropdown-item">✏️ &nbsp; Edit</div>
+            <div class="gw-dropdown-item">📋 &nbsp; Duplicate</div>
+            <div class="gw-dropdown-item">⬇️ &nbsp; Export</div>
+            <div class="gw-dropdown-divider"></div>
+            <div class="gw-dropdown-item danger">🗑️ &nbsp; Delete</div>
+          </div>
+        </div>
+
+        <div class="gw-dropdown">
+          <button class="gw-btn">Account ▾</button>
+          <div class="gw-dropdown-menu">
+            <div class="gw-dropdown-item">👤 &nbsp; Profile</div>
+            <div class="gw-dropdown-item">⚙️ &nbsp; Settings</div>
+            <div class="gw-dropdown-divider"></div>
+            <div class="gw-dropdown-item danger">🚪 &nbsp; Sign Out</div>
+          </div>
+        </div>
+
+        <div style="padding-top:4px;">
+          <span class="gw-tooltip">
+            <button class="gw-btn">Hover for tooltip</button>
+            <span class="gw-tooltip-text">This is a glass tooltip</span>
+          </span>
+        </div>
+
+        <div style="padding-top:4px;">
+          <span class="gw-tooltip">
+            <span class="gw-badge gw-badge-primary" style="cursor:pointer;">ℹ️ Info</span>
+            <span class="gw-tooltip-text">Tooltip on any element</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       DIALOG (DRAGGABLE)
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Draggable Dialog</div>
+    <div class="section-desc">Glass dialog with backdrop blur. Drag it by the header.</div>
+
+    <div class="preview-box gw-flex-center" style="min-height:120px; gap:12px;">
+      <button class="gw-btn gw-btn-primary" onclick="openDialog('d1')">Open Dialog</button>
+      <button class="gw-btn gw-btn-ghost" onclick="openDialog('d2')">Confirm Dialog</button>
+    </div>
+  </div>
+
+  <!-- ================================
+       LOADERS
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Loaders & Skeleton</div>
+    <div class="section-desc">Spinning loaders and shimmer skeleton placeholders.</div>
+
+    <div class="preview-box">
+      <div class="component-row gw-mb-4">
+        <div class="gw-loader gw-loader-sm"></div>
+        <div class="gw-loader"></div>
+        <div class="gw-loader gw-loader-lg"></div>
+        <div class="gw-loader-pulse"></div>
+      </div>
+
+      <div class="gw-heading gw-mb-2">Skeleton</div>
+      <div class="gw-card" style="max-width:340px;">
+        <div class="gw-flex gw-items-center" style="gap:12px; margin-bottom:16px;">
+          <div class="gw-skeleton" style="width:42px; height:42px; border-radius:50%; flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div class="gw-skeleton" style="height:14px; width:60%; margin-bottom:8px;"></div>
+            <div class="gw-skeleton" style="height:11px; width:40%;"></div>
+          </div>
+        </div>
+        <div class="gw-skeleton" style="height:12px; width:100%; margin-bottom:8px;"></div>
+        <div class="gw-skeleton" style="height:12px; width:85%; margin-bottom:8px;"></div>
+        <div class="gw-skeleton" style="height:12px; width:70%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       SIDEBAR LAYOUT
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Layout</div>
+    <div class="section-name">Sidebar Layout</div>
+    <div class="section-desc">Combine .gw-sidebar with .gw-flex for dashboard layouts.</div>
+
+    <div class="sidebar-layout">
+      <aside class="gw-sidebar">
+        <div class="gw-sidebar-section">
+          <div class="gw-sidebar-label">Main</div>
+          <a class="gw-sidebar-link active" href="#">📊 &nbsp; Dashboard</a>
+          <a class="gw-sidebar-link" href="#">📁 &nbsp; Projects</a>
+          <a class="gw-sidebar-link" href="#">👥 &nbsp; Team</a>
+          <a class="gw-sidebar-link" href="#">📈 &nbsp; Analytics</a>
+        </div>
+        <div class="gw-sidebar-section">
+          <div class="gw-sidebar-label">Account</div>
+          <a class="gw-sidebar-link" href="#">⚙️ &nbsp; Settings</a>
+          <a class="gw-sidebar-link" href="#">🚪 &nbsp; Sign Out</a>
+        </div>
+      </aside>
+
+      <div style="flex:1;">
+        <div class="gw-grid gw-grid-2 gw-gap-sm">
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Projects</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-gradient-text">24</div>
+            <div class="gw-progress gw-mt-2"><div class="gw-progress-bar" style="width:60%"></div></div>
+          </div>
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Tasks Done</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-color-success">142</div>
+            <div class="gw-progress gw-progress-success gw-mt-2"><div class="gw-progress-bar" style="width:80%"></div></div>
+          </div>
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Pending</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-color-warning">7</div>
+            <div class="gw-progress gw-mt-2" style="--gw-primary:#f59e0b;"><div class="gw-progress-bar" style="width:25%"></div></div>
+          </div>
+          <div class="gw-card gw-p-3">
+            <div class="gw-muted gw-text-sm">Team Size</div>
+            <div style="font-size:1.8rem; font-weight:800;" class="gw-color-primary">8</div>
+            <div class="gw-avatar-group gw-mt-2">
+              <div class="gw-avatar gw-avatar-sm">A</div>
+              <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)">B</div>
+              <div class="gw-avatar gw-avatar-sm" style="background:linear-gradient(135deg,#10b981,#06b6d4)">C</div>
+              <div class="gw-avatar gw-avatar-sm">+5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       MARQUEE
+  ================================= -->
+  <div class="demo-section">
+    <div class="section-title">Components</div>
+    <div class="section-name">Marquee</div>
+
+    <div class="gw-card gw-p-2">
+      <div class="gw-marquee">
+        <div class="gw-marquee-inner">
+          ✦ GlassWin UI &nbsp;&nbsp;&nbsp;
+          ✦ Windows 11 Inspired &nbsp;&nbsp;&nbsp;
+          ✦ Glassmorphism &nbsp;&nbsp;&nbsp;
+          ✦ Dark & Light Theme &nbsp;&nbsp;&nbsp;
+          ✦ Zero Dependencies &nbsp;&nbsp;&nbsp;
+          ✦ MIT License &nbsp;&nbsp;&nbsp;
+          ✦ Free & Open Source &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          ✦ GlassWin UI &nbsp;&nbsp;&nbsp;
+          ✦ Windows 11 Inspired &nbsp;&nbsp;&nbsp;
+          ✦ Glassmorphism &nbsp;&nbsp;&nbsp;
+          ✦ Dark & Light Theme &nbsp;&nbsp;&nbsp;
+          ✦ Zero Dependencies &nbsp;&nbsp;&nbsp;
+          ✦ MIT License &nbsp;&nbsp;&nbsp;
+          ✦ Free & Open Source &nbsp;&nbsp;&nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="gw-card gw-text-center gw-p-4 gw-mb-4">
+    <div class="gw-card-title gw-mb-2">GlassWin UI v2.0</div>
+    <div class="gw-muted gw-mb-3">Open source glassmorphic CSS framework. MIT License.</div>
+    <a href="https://github.com/sdurgesh4/glasswinui" target="_blank"
+       class="gw-btn gw-btn-primary">Star on GitHub ★</a>
+  </div>
+
+</div>
+
+<!-- Dialog 1 -->
+<div class="gw-dialog-overlay" id="overlay-d1" style="display:none;" onclick="closeDialogOverlay(event,'d1')">
+  <div class="gw-dialog gw-draggable" id="d1">
+    <div class="gw-dialog-header">
+      <span class="gw-dialog-title">Glass Dialog</span>
+      <div class="gw-dialog-close" onclick="closeDialog('d1')">✕</div>
+    </div>
+    <div class="gw-dialog-body">
+      <p class="gw-text gw-mb-3">This dialog supports drag. Grab the header and move it around. The background uses <code class="gw-code">backdrop-filter: blur(6px)</code> so you can see the content behind through glass.</p>
+      <div class="gw-alert gw-alert-info">Drag me by the header bar above.</div>
+    </div>
+    <div class="gw-dialog-footer">
+      <button class="gw-btn gw-btn-ghost gw-btn-sm" onclick="closeDialog('d1')">Cancel</button>
+      <button class="gw-btn gw-btn-primary gw-btn-sm" onclick="showToast('Confirmed!'); closeDialog('d1')">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog 2 -->
+<div class="gw-dialog-overlay" id="overlay-d2" style="display:none;" onclick="closeDialogOverlay(event,'d2')">
+  <div class="gw-dialog gw-draggable" id="d2">
+    <div class="gw-dialog-header">
+      <span class="gw-dialog-title">Delete Item</span>
+      <div class="gw-dialog-close" onclick="closeDialog('d2')">✕</div>
+    </div>
+    <div class="gw-dialog-body">
+      <div class="gw-alert gw-alert-danger gw-mb-3">This action cannot be undone.</div>
+      <p class="gw-text">Are you sure you want to delete this item? All associated data will be permanently removed.</p>
+    </div>
+    <div class="gw-dialog-footer">
+      <button class="gw-btn gw-btn-ghost gw-btn-sm" onclick="closeDialog('d2')">Cancel</button>
+      <button class="gw-btn gw-btn-danger gw-btn-sm" onclick="showToast('Item deleted.'); closeDialog('d2')">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Theme toggle
+  function toggleTheme() {
+    const h = document.documentElement;
+    const isLight = h.dataset.theme === 'light';
+    h.dataset.theme = isLight ? 'dark' : 'light';
+    document.getElementById('themeIcon').textContent = isLight ? '☀️' : '🌙';
+  }
+
+  // Tabs
+  function switchTab(el, id) {
+    document.querySelectorAll('.gw-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.gw-tab-content').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Toast
+  function showToast(msg) {
+    const c = document.getElementById('toastContainer');
+    const t = document.createElement('div');
+    t.className = 'gw-toast';
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => {
+      t.classList.add('hide');
+      setTimeout(() => t.remove(), 300);
+    }, 3000);
+  }
+
+  // Dialog open/close
+  function openDialog(id) {
+    const overlay = document.getElementById('overlay-' + id);
+    overlay.style.display = 'flex';
+    makeDialogDraggable(document.getElementById(id));
+  }
+
+  function closeDialog(id) {
+    document.getElementById('overlay-' + id).style.display = 'none';
+  }
+
+  function closeDialogOverlay(e, id) {
+    if (e.target === document.getElementById('overlay-' + id)) closeDialog(id);
+  }
+
+  // Draggable dialog
+  function makeDialogDraggable(dialogEl) {
+    const header = dialogEl.querySelector('.gw-dialog-header');
+    if (!header || dialogEl._draggable) return;
+    dialogEl._draggable = true;
+
+    let isDragging = false, startX, startY, initLeft, initTop;
+
+    dialogEl.style.position = 'fixed';
+    dialogEl.style.left = ((window.innerWidth  - dialogEl.offsetWidth)  / 2) + 'px';
+    dialogEl.style.top  = ((window.innerHeight - dialogEl.offsetHeight) / 2) + 'px';
+    dialogEl.style.margin = '0';
+
+    header.addEventListener('mousedown', e => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      initLeft = parseInt(dialogEl.style.left) || 0;
+      initTop  = parseInt(dialogEl.style.top)  || 0;
+      dialogEl.style.transition = 'none';
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      dialogEl.style.left = (initLeft + e.clientX - startX) + 'px';
+      dialogEl.style.top  = (initTop  + e.clientY - startY) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      dialogEl.style.transition = '';
+      document.body.style.userSelect = '';
+    });
+  }
+</script>
+</body>
+</html>
